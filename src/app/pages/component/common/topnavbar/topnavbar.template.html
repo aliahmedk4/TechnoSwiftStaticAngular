@@ -1,0 +1,50 @@
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+
+    <div id="topbar">
+      <div class="container">
+        <div class="social-links">
+          <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
+          <a href="https://www.facebook.com/technoswiftsolution" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="https://www.instagram.com/technoswiftsolution" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+          <a href="https://youtu.be/l37uLc9F_D0" target="_blank" class="linkedin"><i class="fa fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div style="display: inline-block !important">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <h1 class="text-light"><a href="#intro" class="scrollto"><span>Rapid</span></a></h1> -->
+        <a href="#header" class="scrollto"><img src="../assets/img/TSWithLogo.png" style="width:270px;height:70px !important;margin-top:-13px !important;" alt="GST Billing Software Free Download in India" class=""></a>
+      </div>
+
+      <nav class="main-nav float-left d-none d-lg-block" style="display: inline-block !important;margin-left: 50px;">
+        <ul>
+          <li [ngClass]="{'active': activeRoute('/index')}"  [routerLink]="['/index']"><a href="#intro">Home</a></li>
+          <li><a (click)="onClick('about')" style="cursor: pointer;">About Us</a></li>
+		      <li><a [ngClass]="{'active': activeRoute('/privacy')}"  [routerLink]="['/privacy']">Privacy</a></li>
+          <li><a (click)="onClick('services')" style="cursor: pointer;">Services</a></li>
+          <!-- <li><a (click)="onClick('portfolio')" style="cursor: pointer;">Portfolio</a></li> -->
+          <li><a (click)="onClick('team')" style="cursor: pointer;">Team</a></li>
+		   <li class="drop-down"  [ngClass]="{'active': activeRoute('/registercompany')}" ><a href="">Register</a>
+            <ul>
+              <li><a [routerLink]="['/registercompany']">SalesBook as Customer</a></li>
+              <li><a href="PartnerUser.html">SalesBook as Partner</a></li> 
+            </ul>
+          </li>
+          <li class="drop-down"><a href="">Login</a>
+            <ul>
+              <li><a href="https://salesbook.technoswiftsolution.com" target="_blank">SalesBook as Customer</a></li>
+              <li><a href="https://salesbook.technoswiftsolution.com" target="_blank">SalesBook as Partner</a></li>
+            </ul>
+          </li>
+          <li><a (click)="onClick('footer')" style="cursor: pointer;">Contact Us</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+      
+    </div>
+  </header><!-- #header -->

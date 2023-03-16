@@ -26,13 +26,22 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/assets/img/favicon.png",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/animate.css/animate.min.css",
+              "src/styles/styles.scss",
+              "node_modules/ngx-spinner/animations/ball-spin.css"
             ],
-            "scripts": []
+            "scripts": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/js/wow/wow.min.js",
+              "src/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -44,8 +53,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 }
               ],
               "outputHashing": "all"
@@ -93,12 +102,24 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/animate.css/animate.min.css",
+              "src/styles/styles.scss",
+              "node_modules/ngx-spinner/animations/ball-spin.css"
             ],
-            "scripts": []
+            "scripts": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+            "src/js/wow/wow.min.js",
+            "src/js/main.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "59f9a694-fc48-4922-b70a-4d9a9bae97e5"
   }
 }

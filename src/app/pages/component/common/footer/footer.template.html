@@ -1,0 +1,161 @@
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer" class="section-bg">
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+
+                  <div class="footer-info">
+                    <h1>Technoswift</h1>
+                    <p>People at Technoswift working tirelessly to support the application for better experience of our customer</p>
+                  </div>
+
+                  <div class="footer-newsletter">
+                    <h4>Our Newsletter</h4>
+                    <p>You will get to know about the update of the invoice software</p>
+                    <form action="" method="post">
+                      <input type="email" name="email"><input type="submit"  value="Subscribe">
+                    </form>
+                  </div>
+
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About us</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Terms of service</a></li>
+                      <li><a href="Privacy.html">Privacy policy</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p>
+                      Shop No C8, NR Hanuman Mandir,LBS Marg<br>
+                      Kurla West,Mumbai - 400070<br>
+                      India <br>
+                      <strong>Phone:</strong> +91 9769391485<br>
+                      <strong>Email:</strong> customersupport@technoswiftsolution.com<br>
+                    </p>
+                  </div>
+
+                  <div class="social-links">
+                    <!-- <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> -->
+                    <a href="https://www.facebook.com/technoswiftsolution" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/technoswiftsolution" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="https://youtu.be/l37uLc9F_D0" target="_blank" class="linkedin"><i class="fa fa-youtube"></i></a>
+                  </div>
+
+                </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="form">
+              
+              <h4>Send us a message</h4>
+              <p>Our executive will try to reach you on your given below numbers</p>
+              <form class="form-horizontal resetpassword" name="EmailForm" [formGroup]="createSendEmailForm" >
+                <div class="form-group">
+                  <input type="text" id="Name" name="Name" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Your Name" maxlength="30" formControlName="Name"
+                                        [ngClass]="{ 'has-error': submitted && f['Name'].errors }" OnlyCharacter>
+                  <!-- <input type="text" name="name" class="form-control" id="name" ng-model="Email.Name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="MobileNo" name="MobileNo" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Your Mobile No" maxlength="30" formControlName="MobileNo"
+                                        [ngClass]="{ 'has-error': submitted && f['MobileNo'].errors }" numbersOnly>
+                  <div class="validation"></div>
+                </div>
+        				<div class="form-group">
+                  <input type="email" id="EmailId" name="EmailId" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Your Email" maxlength="30" formControlName="EmailId"
+                                        [ngClass]="{ 'has-error': submitted && f['EmailId'].errors }"> 
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="Subject" name="Subject" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Please enter at least 8 chars of subject" maxlength="100" formControlName="Subject"
+                                        [ngClass]="{ 'has-error': submitted && f['Subject'].errors }">
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea id="Body" name="Body" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Message" maxlength="500" formControlName="Body"
+                                        [ngClass]="{ 'has-error': submitted && f['Body'].errors }"></textarea>
+                  <div class="validation"></div>
+                </div>
+
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+
+                <div class="text-center" style="float: right !important;"><button type="submit" title="Send Message" (click)="SendEmail()">Send Message</button></div>
+              </form>
+            </div>
+
+          </div>
+
+          
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Technoswift Solution</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
+        -->
+        Designed by <a href="https://technoswiftsolution.com">Ali Ahmed</a>
+      </div>
+    </div>
+
+    <!-- Send Message Alert -->
+    <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displaySuccess}">
+      <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                  <div class="modal-header">
+                        <h4 class="modal-title">Your Account has been Successfully Registered!!!</h4>
+                        <button type="button" (click)="onCloseHandled()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                      </div>
+                       <div class="modal-body">
+                        <div class="container">
+                         <div class="row">
+                           <div class="col-sm">
+                            <h5>Your Queries has been send to our Team, Our Team Will reach you soon!!!</h5>
+                           </div>
+                          
+                         </div>
+                       </div>
+                      </div>
+                  <div class="modal-footer">
+                        <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </footer><!-- #footer -->

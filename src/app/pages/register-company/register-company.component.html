@@ -1,0 +1,319 @@
+
+
+<div class="container" style="padding-top:180px !important;">
+    <form class="form-horizontal resetpassword" [formGroup]="createRegisterForm" >
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="box-grid-bg">
+                    <div class="data-title-main p-2">
+                        <div class="row align-items-center">
+                            <div class="col-md-9 col-6">
+                                <div class="data-title pl-2 mt-1 pt-1">
+                                    Your basic info (Company Sign Up)
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="CompName" ng-class="{'mendot-lable': errors.formErrors.CompName || (RegistrationForm.CompName.$invalid && (RegistrationForm.CompName.$dirty  || submitted || RegistrationForm.CompName.$touched)),'has-success': RegistrationForm.CompName.$valid }">
+                                        Company Name
+                                    </label>
+                                    <input type="text" id="CompName" name="CompName" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Enter Company Name" maxlength="30" formControlName="CompName"
+                                        [ngClass]="{ 'has-error': submitted && f['CompName'].errors }" OnlyCharacter>
+
+                                </div>
+                            
+                        </div>
+                        <div class="col-md-6 col-12">
+                        
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="PrintName">
+                                        Print Name
+                                    </label>
+                                    <input type="text" id="PrintName" name="PrintName" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Enter Print Name" maxlength="30" formControlName="PrintName"
+                                        [ngClass]="{ 'has-error': submitted && f['PrintName'].errors }" OnlyCharacter>
+
+                                </div>
+                            
+                        </div>
+                        <div class="col-md-6 col-12">
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="FirstName" ng-class="{'mendot-lable': errors.formErrors.FirstName || (RegistrationForm.FirstName.$invalid && (RegistrationForm.FirstName.$dirty  || submitted || RegistrationForm.FirstName.$touched)),'has-success': RegistrationForm.FirstName.$valid }">First Name</label>
+                                    <input type="text" id="FirstName" name="FirstName" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Enter FirstName" maxlength="30" formControlName="FirstName"
+                                        [ngClass]="{ 'has-error': submitted && f['FirstName'].errors }" OnlyCharacter>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="Middle">
+                                        Middle Name
+                                    </label>
+                                    <input type="text" id="Middle" name="Middle" class="form-control" id="Middle"
+                                        aria-describedby="textHelp" placeholder="Enter Middle Name" maxlength="30" formControlName="Middle" 
+                                        OnlyCharacter>
+                                </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="LastName" ng-class="{'mendot-lable': errors.formErrors.LastName || (RegistrationForm.LastName.$invalid && (RegistrationForm.LastName.$dirty  || submitted || RegistrationForm.LastName.$touched)),'has-success': RegistrationForm.LastName.$valid }">
+                                        Last Name
+                                    </label>
+                                    <input type="text" id="LastName" name="LastName" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Enter Last Name" maxlength="30" formControlName="LastName" ng-required="true" 
+                                        [ngClass]="{ 'has-error': submitted && f['LastName'].errors }" OnlyCharacter>
+                                </div>
+                        
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="ContactNumber" ng-class="{'mendot-lable': errors.formErrors.ContactNumber || (RegistrationForm.ContactNumber.$invalid && (RegistrationForm.ContactNumber.$dirty  || submitted || RegistrationForm.ContactNumber.$touched)),'has-success': RegistrationForm.ContactNumber.$valid }" >
+                                        Mobile Number*
+                                    </label>
+                                    <input type="text" id="ContactNumber" name="ContactNumber" formControlName="Phone" class="form-control numeric"
+                                        aria-describedby="textHelp" placeholder="Enter Mobile No" maxlength="10" ng-required="true" 
+                                        [ngClass]="{ 'has-error': submitted && f['Phone'].errors }" numbersOnly>
+                                </div>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="exampleInputtext1">
+                                        Alternate Mobile
+                                    </label>
+                                    <input type="text" class="form-control numeric" id="exampleInputtext1" formControlName="AlternateMobile"
+                                        aria-describedby="textHelp" placeholder="Enter Secondary  Mobile" maxlength="10" numbersOnly>
+
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                        
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" 
+                                        for="Gender">Gender * </label>
+                                    <select class="form-control" id="Gender" name="Gender" formControlName="Gender" ng-required="true" 
+                                    [ngClass]="{ 'has-error': submitted && f['Gender'].errors }" >
+                                        <option value="">-- Select Gender --</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                        
+                        </div>
+                        <div class="col-md-6 col-12">
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="Username" ng-class="{'mendot-lable': errors.formErrors.Username || (RegistrationForm.Username.$invalid && (RegistrationForm.Username.$dirty  || submitted || RegistrationForm.Username.$touched)),'has-success': RegistrationForm.Username.$valid }">
+                                        Username *
+                                    </label>
+                                    <input type="text" id="Username" name="Username" formControlName="Username" class="form-control alphaNo"
+                                        aria-describedby="textHelp" placeholder="Enter Username" maxlength="30" ng-required="true" 
+                                        [ngClass]="{ 'has-error': submitted && f['Username'].errors }" specialIsAlphaNumeric>
+
+                                </div>
+
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="Email" ng-class="{'mendot-lable': errors.formErrors.Email || (RegistrationForm.Email.$invalid && (RegistrationForm.Email.$dirty  || submitted || RegistrationForm.Email.$touched)),'has-success': RegistrationForm.Email.$valid }">
+                                        Email *
+                                    </label>
+                                    <input type="email" id="Email" name="Email" class="form-control" formControlName="Email"
+                                        aria-describedby="textHelp" placeholder="Enter Email" maxlength="50" ng-required="true" 
+                                        [ngClass]="{ 'has-error': submitted && f['Email'].errors }" >
+
+
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="Password" ng-class="{'mendot-lable': errors.formErrors.Password || (RegistrationForm.Username.$invalid && (RegistrationForm.Password.$dirty  || submitted || RegistrationForm.Password.$touched)),'has-success': RegistrationForm.Password.$valid }">
+                                        Password
+                                    </label>
+                                    <input type="password" id="Password" name="Password" placeholder="Enter Password" class="form-control"
+                                    formControlName="Password" maxlength="15" ng-required="true" [ngClass]="{ 'has-error': submitted && f['Password'].errors }" >
+
+
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="ConfirmPassword" ng-class="{'mendot-lable': errors.formErrors.ConfirmPassword || (RegistrationForm.ConfirmPassword.$invalid && (RegistrationForm.ConfirmPassword.$dirty  || submitted || RegistrationForm.ConfirmPassword.$touched)),'has-success': RegistrationForm.ConfirmPassword.$valid }">
+                                        Confirm Password
+                                    </label>
+                                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Enter Confirm Password" class="form-control"
+                                    [ngClass]="{ 'has-error': submitted && f['ConfirmPassword'].errors }" formControlName="ConfirmPassword" maxlength="15" ng-required="true" >
+                                </div>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="UserReferCode">
+                                        Refer Code
+                                    </label>
+                                    <input type="text" id="UserReferCode" name="UserReferCode" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Enter ReferCode" maxlength="10" formControlName="UserReferCode">
+
+                                </div>
+                            
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" ng-class="{'mendot-lable': errors.formErrors.State || (RegistrationForm.State.$invalid && ( RegistrationForm.State.$dirty  || submitted || RegistrationForm.State.$touched)), 'has-success': RegistrationForm.State.$valid }"
+                                        for="State ">State * </label>
+                                    <select id="StateCode" name="StateCode" class="form-control selectInput"
+                                    [ngClass]="{ 'has-error': submitted && f['StateCode'].errors }" formControlName="StateCode" >
+                                 <option value="">-- Select State --</option>
+                                <option *ngFor="let item of state" [value]="item.StateCode">{{item.StateName}}</option>  
+                              </select>
+                                </div>
+                            
+                        </div>
+                        <div class="col-md-6 col-12">
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" for="City">
+                                        City
+                                    </label>
+                                    <input type="text" id="City" name="City" formControlName="City" class="form-control"
+                                        aria-describedby="textHelp" placeholder="Enter City" maxlength="30" ng-required="true">
+                                </div>
+                            
+                        </div>
+                        <div class="col-md-6 col-12">                            
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" ng-class="{'mendot-lable': errors.formErrors.FirmType || (RegistrationForm.FirmType.$invalid && ( RegistrationForm.FirmType.$dirty  || submitted || RegistrationForm.FirmType.$touched)), 'has-success': RegistrationForm.FirmType.$valid }"
+                                        for="State ">Firm Type * </label>
+                                    <select id="FirmType" name="FirmType" class="form-control selectInput"
+                                    [ngClass]="{ 'has-error': submitted && f['FirmTypeId'].errors }" formControlName="FirmTypeId" >
+                                       <option value="">-- Select Firm Type --</option>
+                                      <option *ngFor="let item of firmtype" [value]="item.id">{{item.text}}</option>  
+                                    </select>
+                                </div>
+                        
+                        </div>
+                        <div class="col-md-6 col-12">                           
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register" ng-class="{'mendot-lable': errors.formErrors.BusinessType || (RegistrationForm.BusinessType.$invalid && ( RegistrationForm.BusinessType.$dirty  || submitted || RegistrationForm.BusinessType.$touched)), 'has-success': RegistrationForm.BusinessType.$valid }"
+                                        for="State ">Business Type * </label>
+                                    <select id="BusinessType" name="BusinessType" class="form-control selectInput"
+                                          [ngClass]="{ 'has-error': submitted && f['BusinessTypeId'].errors }" formControlName="BusinessTypeId" >
+                                      <option value="">-- Select Business Type --</option>
+                                      <option *ngFor="let item of businesstype" [value]="item.id">{{item.text}}</option>  
+                                    </select>
+                                </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9 col-12">
+                                <div class="form-group register-form-page mt-2 mb-0">
+                                    <label class="lable-register " for="Address">Address</label>
+                                    <textarea class=" form-control" id="Address" formControlName="Address" 
+                                            placeholder="Enter Address"></textarea>
+                                </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        
+
+                    </div>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-12 text-center">
+                            <input type="submit" class="btn btn-primary" (click)="ClearValues()" value="Reset" style="margin-right: 15px !important;">
+                            <input type="submit" class="btn btn-primary" (click)="SaveCompany()" value="Sign Up">
+                            <!-- <a class="exit-btn-form" href="#">Reset</a>
+                            <a class="save-btn-form" href="#" ng-disabled="SavedRequest" ng-style="SavedRequest && {'color':'#f74949','cursor': 'not-allowed'}" ng-click="Submit()">
+                                Sign Up
+                                <i class="fa fa-spinner fa-spin" ng-show="SavedRequest"></i>
+                            </a> -->
+                        </div>
+                        <div class="col-12 text-center padding-top" *ngIf="showerror" style="padding-top: 20px;">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                               <h4>Error:</h4> {{errormessage}}..
+                                <button class="close" data-dismiss="alert" aria-label="close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+<!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+    <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+         <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                     <div class="modal-header">
+                           <h4 class="modal-title">OTP has been send on your email</h4>
+                           <button type="button" (click)="onCloseHandled()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                         </div>
+                          <div class="modal-body">
+                           <div class="container">
+                            <div class="row">
+                              <div class="col-sm">
+                                <label class="lable-register" for="OTP">
+                                    Enter OTP 
+                                </label>
+                              </div>
+                              <div class="col-sm">
+                                <input type="text" id="OTP" name="OTP" [(ngModel)]="OTP" class="form-control"
+                                    aria-describedby="textHelp" placeholder="Enter OTP" maxlength="30" ng-required="true">
+                              </div>
+                             
+                            </div>
+                          </div>
+                         </div>
+                     <div class="modal-footer">
+                           <button type="button" class="btn btn-default" (click)="SaveCompany()" >Confirm OTP</button>
+                         </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displaySuccess}">
+        <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                    <div class="modal-header">
+                          <h4 class="modal-title">Your Account has been Successfully Registered!!!</h4>
+                          <button type="button" (click)="onCloseHandled()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        </div>
+                         <div class="modal-body">
+                          <div class="container">
+                           <div class="row">
+                             <div class="col-sm">
+                              <h5>Your credential has been send to your email id</h5>
+                              <h6>Please click below to go on Login Page</h6>
+                             </div>
+                            
+                           </div>
+                         </div>
+                        </div>
+                    <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" (click)="onSuccessCloseHandled()" >Open Login</button>
+                        </div>
+                </div>
+            </div>
+        </div>
