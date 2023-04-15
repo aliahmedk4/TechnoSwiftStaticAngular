@@ -17,12 +17,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/privacy/privacy.module').then(m => m.PrivacyModule)
   },
   {
-    path: 'shippingpolicy',component: BasicLayoutComponent,
+    path: 'shipping',component: BasicLayoutComponent,
     loadChildren: () => import('./pages/shippingpolicy/shippingpolicy.module').then(m => m.ShippingPolicyModule)
   },
   {
-    path: 'terms',component: BasicLayoutComponent,
-    loadChildren: () => import('./pages/privacy/privacy.module').then(m => m.PrivacyModule)
+    path: 'contactus',component: BasicLayoutComponent,
+    loadChildren: () => import('./pages/contactus/contactus.module').then(m => m.ContactUsModule)
+  },
+  {
+    path: 'refundpolicy',component: BasicLayoutComponent,
+    loadChildren: () => import('./pages/refundpolicy/refundpolicy.module').then(m => m.RefundPolicyModule)
   },
   {
     path: 'registercompany',component: BasicLayoutComponent,
