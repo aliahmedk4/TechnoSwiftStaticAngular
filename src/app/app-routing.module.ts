@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/contactus/contactus.module').then(m => m.ContactUsModule)
   },
   {
+    path: 'termsandcondition',component: BasicLayoutComponent,
+    loadChildren: () => import('./pages/terms/terms.module').then(m => m.TermsModule)
+  },
+  {
     path: 'refundpolicy',component: BasicLayoutComponent,
     loadChildren: () => import('./pages/refundpolicy/refundpolicy.module').then(m => m.RefundPolicyModule)
   },
