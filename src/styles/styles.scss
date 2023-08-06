@@ -1774,5 +1774,11 @@ body {
   
   
   }
+
+  .invalid-email {
+    border-color: #ff3b3b !important;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 6px #ff3b3b !important;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 6px #c35e5e !important;
+  }
   
   /* register-form end---- */

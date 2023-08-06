@@ -1,0 +1,12 @@
+/* YourComponent.scss or global styles.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency as needed */
+    display: none; /* Hide the overlay by default */
+    z-index: 1000; /* Adjust the z-index to ensure it's above other content */
+  }
+  

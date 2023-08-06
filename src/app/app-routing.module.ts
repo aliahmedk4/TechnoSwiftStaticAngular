@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicLayoutComponent } from './pages/component/common/layouts/basicLayout.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'index', pathMatch: 'full'},
-  // {
-  //   path: '',component: BasicLayoutComponent,
-  //   loadChildren: () => import('./pages/index/index.module').then(m => m.IndexModule)
-  // },
+    // {path: '', redirectTo: '/index', pathMatch: 'full' },
+  {
+    path: '',component: BasicLayoutComponent,
+    loadChildren: () => import('./pages/index/index.module').then(m => m.IndexModule)
+  },
   {
     path: 'index',component: BasicLayoutComponent,
     loadChildren: () => import('./pages/index/index.module').then(m => m.IndexModule)
@@ -35,8 +35,8 @@ const routes: Routes = [
   {
     path: 'registercompany',component: BasicLayoutComponent,
     loadChildren: () => import('./pages/register-company/register-company.module').then(m => m.RegisterCompanyModule)
-  },
-  {path: '**',  redirectTo: 'index'}
+  }
+  // ,{path: '**',  redirectTo: 'index'}
 ];
 
 @NgModule({

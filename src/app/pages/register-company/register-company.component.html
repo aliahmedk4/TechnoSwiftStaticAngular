@@ -1,6 +1,14 @@
 
+<ngx-spinner
+bdColor="rgba(0, 0, 0, 0.8)"
+size="medium"
+color="#fff"
+[type]="typeSelected"
+[fullScreen]="true"
+><p style="color: white">Loading...</p>
+</ngx-spinner>
 
-<div class="container" style="padding-top:180px !important;">
+<div class="container" style="padding-top:180px !important;height: 1500px;">
     <form class="form-horizontal resetpassword" [formGroup]="createRegisterForm" >
         <div class="row">
             <div class="col-12 col-md-12">
@@ -29,7 +37,7 @@
                                         Company Name
                                     </label>
                                     <input type="text" id="CompName" name="CompName" class="form-control"
-                                        aria-describedby="textHelp" placeholder="Enter Company Name" maxlength="30" formControlName="CompName"
+                                        aria-describedby="textHelp" placeholder="Enter Company Name" maxlength="50" formControlName="CompName" CapitalizeFirstChar
                                         [ngClass]="{ 'has-error': submitted && f['CompName'].errors }" OnlyCharacter>
 
                                 </div>
@@ -42,7 +50,7 @@
                                         Print Name
                                     </label>
                                     <input type="text" id="PrintName" name="PrintName" class="form-control"
-                                        aria-describedby="textHelp" placeholder="Enter Print Name" maxlength="30" formControlName="PrintName"
+                                        aria-describedby="textHelp" placeholder="Enter Print Name" maxlength="30" formControlName="PrintName" CapitalizeFirstChar
                                         [ngClass]="{ 'has-error': submitted && f['PrintName'].errors }" OnlyCharacter>
 
                                 </div>
@@ -52,7 +60,7 @@
                                 <div class="form-group register-form-page mt-2 mb-0">
                                     <label class="lable-register" for="FirstName" ng-class="{'mendot-lable': errors.formErrors.FirstName || (RegistrationForm.FirstName.$invalid && (RegistrationForm.FirstName.$dirty  || submitted || RegistrationForm.FirstName.$touched)),'has-success': RegistrationForm.FirstName.$valid }">First Name</label>
                                     <input type="text" id="FirstName" name="FirstName" class="form-control"
-                                        aria-describedby="textHelp" placeholder="Enter FirstName" maxlength="30" formControlName="FirstName"
+                                        aria-describedby="textHelp" placeholder="Enter FirstName" maxlength="30" formControlName="FirstName" CapitalizeFirstChar
                                         [ngClass]="{ 'has-error': submitted && f['FirstName'].errors }" OnlyCharacter>
                                 </div>
                         </div>
@@ -62,7 +70,7 @@
                                         Middle Name
                                     </label>
                                     <input type="text" id="Middle" name="Middle" class="form-control" id="Middle"
-                                        aria-describedby="textHelp" placeholder="Enter Middle Name" maxlength="30" formControlName="Middle" 
+                                        aria-describedby="textHelp" placeholder="Enter Middle Name" maxlength="30" formControlName="Middle"  CapitalizeFirstChar
                                         OnlyCharacter>
                                 </div>
                             
@@ -78,7 +86,7 @@
                                     </label>
                                     <input type="text" id="LastName" name="LastName" class="form-control"
                                         aria-describedby="textHelp" placeholder="Enter Last Name" maxlength="30" formControlName="LastName" ng-required="true" 
-                                        [ngClass]="{ 'has-error': submitted && f['LastName'].errors }" OnlyCharacter>
+                                        [ngClass]="{ 'has-error': submitted && f['LastName'].errors }" OnlyCharacter CapitalizeFirstChar>
                                 </div>
                         
                         </div>
@@ -90,7 +98,7 @@
                                         Mobile Number*
                                     </label>
                                     <input type="text" id="ContactNumber" name="ContactNumber" formControlName="Phone" class="form-control numeric"
-                                        aria-describedby="textHelp" placeholder="Enter Mobile No" maxlength="10" ng-required="true" 
+                                        aria-describedby="textHelp" placeholder="Enter Mobile No" maxlength="10" ng-required="true"
                                         [ngClass]="{ 'has-error': submitted && f['Phone'].errors }" numbersOnly>
                                 </div>
                         </div>
@@ -125,7 +133,7 @@
                                         Username *
                                     </label>
                                     <input type="text" id="Username" name="Username" formControlName="Username" class="form-control alphaNo"
-                                        aria-describedby="textHelp" placeholder="Enter Username" maxlength="30" ng-required="true" 
+                                        aria-describedby="textHelp" placeholder="Enter Username" maxlength="15" ng-required="true" 
                                         [ngClass]="{ 'has-error': submitted && f['Username'].errors }" specialIsAlphaNumeric>
 
                                 </div>
@@ -138,7 +146,7 @@
                                     </label>
                                     <input type="email" id="Email" name="Email" class="form-control" formControlName="Email"
                                         aria-describedby="textHelp" placeholder="Enter Email" maxlength="50" ng-required="true" 
-                                        [ngClass]="{ 'has-error': submitted && f['Email'].errors }" >
+                                        [ngClass]="{ 'has-error': submitted && f['Email'].errors }" EmailValidator >
 
 
                                 </div>
@@ -192,7 +200,7 @@
                                     <label class="lable-register" for="City">
                                         City
                                     </label>
-                                    <input type="text" id="City" name="City" formControlName="City" class="form-control"
+                                    <input type="text" id="City" name="City" formControlName="City" class="form-control"  CapitalizeFirstChar [capitalizeType]="'all'"
                                         aria-describedby="textHelp" placeholder="Enter City" maxlength="30" ng-required="true">
                                 </div>
                             
@@ -264,6 +272,7 @@
     </form>
 </div>
 <!-- <button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button> -->
+<div class="modal-overlay" [ngStyle]="{'display': display || displaySuccess}"></div>
     <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
          <div class="modal-dialog" role="document">
                <div class="modal-content">
@@ -293,6 +302,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':displaySuccess}">
         <div class="modal-dialog" role="document">
               <div class="modal-content">

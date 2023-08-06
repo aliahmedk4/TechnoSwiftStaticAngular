@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CompanyService } from './services/company.service';
 
@@ -14,10 +15,9 @@ export class AppComponent {
   constructor(
     private spinnerService: NgxSpinnerService,
     private companyService: CompanyService,
+    private router:Router
 
     ) {
-    this.typeSelected = 'ball-fussion';
-    this.spinnerService.show();
 
     this.companyService.showSpinner.subscribe(res=>{
       if(res){

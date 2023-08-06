@@ -6,26 +6,25 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutsModule } from './pages/component/common/layouts/layouts.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterDirective } from './_directive/onlycharacter';
-import { NumberDirective } from './_directive/onlynumber';
-import { SpecialCharacterDirective } from './_directive/onlyalphanumeric';
+import {  } from './_directive/onlynumber';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InterceptorProviders } from './_helpers/tokenintercept';
 
 @NgModule({
   declarations: [
-    AppComponent,CharacterDirective,NumberDirective,CharacterDirective,SpecialCharacterDirective
+    AppComponent,CharacterDirective
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    BrowserModule,BrowserAnimationsModule,
     LayoutsModule,
     HttpClientModule,
-    NgxSpinnerModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule
   ],
   exports: [
-    NgxSpinnerModule],
-  providers: [],
+  ],
+  providers: [InterceptorProviders],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA] //
 })

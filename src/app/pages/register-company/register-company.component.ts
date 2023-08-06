@@ -3,6 +3,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalParameterType } from 'src/app/_helpers/dbenum';
 import { CompanyDetail } from 'src/app/_models/company';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-register-company',
@@ -21,17 +22,19 @@ export class RegisterCompanyComponent implements OnInit{
   showerror:boolean = false;
   display = "none";
   displaySuccess = "none";
+  typeSelected = 'ball-spin';
   
   constructor(
     private companyService:CompanyService,
     private formBuilder: FormBuilder,
+    private spinnerService: NgxSpinnerService,
   ){
     this.BuildCreateSalesForm();
   }
 
-  ngOnInit(): void {
-    this.GetState();
-    this.LoadDropDownForRegistration();
+  async ngOnInit() {
+    await this.GetState();
+    await this.LoadDropDownForRegistration();
   }
 
   BuildCreateSalesForm(){
@@ -43,16 +46,16 @@ export class RegisterCompanyComponent implements OnInit{
       LastName: ['', Validators.required],
       Phone: ['', Validators.required],
       AlternateMobile: ['', Validators.nullValidator],
-      Gender: ['', Validators.required],
+      Gender: ['Male', Validators.required],
       Username: ['', Validators.required],
       Email: ['', Validators.required],
       Password: ['', Validators.required],
       ConfirmPassword: ['', Validators.required],
       UserReferCode: ['', Validators.nullValidator],
-      StateCode: ['', Validators.required],
+      StateCode: ['027', Validators.required],
       City: ['', Validators.required],
-      FirmTypeId: ['', Validators.required],
-      BusinessTypeId: ['', Validators.required],
+      FirmTypeId: ['1', Validators.required],
+      BusinessTypeId: ['1', Validators.required],
       Address: ['', Validators.required],
 
     });
@@ -69,9 +72,9 @@ export class RegisterCompanyComponent implements OnInit{
     this.displaySuccess = "block";
   }
   onCloseHandled() {
+    this.display = "none";
     this.OTP = '';
     this.companyDetail.Company.RequestId='';
-    this.display = "none";
   }
 
   onSuccessCloseHandled() {
@@ -81,26 +84,32 @@ export class RegisterCompanyComponent implements OnInit{
   }
 
 
-  LoadDropDownForRegistration(){
+  LoadDropDownForRegistration= (): Promise<any> => {
+    return new Promise((resolve, reject) => {
     this.companyService.LoadDropDownForRegistration().subscribe(response=>{
       this.firmtype = this.LoadGlobalDropDown(response.result,[GlobalParameterType.Firm_Type]);
       this.businesstype = this.LoadGlobalDropDown(response.result,[GlobalParameterType.Business_Type]);
+      resolve(true);
     })
-  }
+  })
+}
 
-  GetState(){
+  GetState= (): Promise<any> => {
+    return new Promise((resolve, reject) => {
+
     this.companyService.GetAllState().subscribe(result=>{
       this.state = result;
-    })
-  }
+      resolve(true);
+  })
+  })
+}
 
- LoadGlobalDropDown(result:any[],ids:any[]) {
+ LoadGlobalDropDown(result:any[],ids:any[]){
   var filteredArray = result.filter(array_el=>{
         return ids.filter(ids_el=> {
             return ids_el == array_el.typeid;
         }).length == 1
     });
-
     return filteredArray;
 }
 
@@ -130,6 +139,7 @@ ClearValues(){
       this.companyDetail.Company.RequestId = response.RequestId;
       this.openModal();
      }else{
+      this.display = "none";
       this.openSuccessModal();
      }
 
