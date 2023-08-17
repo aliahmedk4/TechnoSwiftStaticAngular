@@ -44,19 +44,6 @@ color="#fff"
                             
                         </div>
                         <div class="col-md-6 col-12">
-                        
-                                <div class="form-group register-form-page mt-2 mb-0">
-                                    <label class="lable-register" for="PrintName">
-                                        Print Name
-                                    </label>
-                                    <input type="text" id="PrintName" name="PrintName" class="form-control"
-                                        aria-describedby="textHelp" placeholder="Enter Print Name" maxlength="30" formControlName="PrintName" CapitalizeFirstChar
-                                        [ngClass]="{ 'has-error': submitted && f['PrintName'].errors }" OnlyCharacter>
-
-                                </div>
-                            
-                        </div>
-                        <div class="col-md-6 col-12">
                                 <div class="form-group register-form-page mt-2 mb-0">
                                     <label class="lable-register" for="FirstName" ng-class="{'mendot-lable': errors.formErrors.FirstName || (RegistrationForm.FirstName.$invalid && (RegistrationForm.FirstName.$dirty  || submitted || RegistrationForm.FirstName.$touched)),'has-success': RegistrationForm.FirstName.$valid }">First Name</label>
                                     <input type="text" id="FirstName" name="FirstName" class="form-control"
@@ -64,33 +51,8 @@ color="#fff"
                                         [ngClass]="{ 'has-error': submitted && f['FirstName'].errors }" OnlyCharacter>
                                 </div>
                         </div>
-                        <div class="col-md-6 col-12">
-                                <div class="form-group register-form-page mt-2 mb-0">
-                                    <label class="lable-register" for="Middle">
-                                        Middle Name
-                                    </label>
-                                    <input type="text" id="Middle" name="Middle" class="form-control" id="Middle"
-                                        aria-describedby="textHelp" placeholder="Enter Middle Name" maxlength="30" formControlName="Middle"  CapitalizeFirstChar
-                                        OnlyCharacter>
-                                </div>
-                            
-                        </div>
-
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-12">
-                            
-                                <div class="form-group register-form-page mt-2 mb-0">
-                                    <label class="lable-register" for="LastName" ng-class="{'mendot-lable': errors.formErrors.LastName || (RegistrationForm.LastName.$invalid && (RegistrationForm.LastName.$dirty  || submitted || RegistrationForm.LastName.$touched)),'has-success': RegistrationForm.LastName.$valid }">
-                                        Last Name
-                                    </label>
-                                    <input type="text" id="LastName" name="LastName" class="form-control"
-                                        aria-describedby="textHelp" placeholder="Enter Last Name" maxlength="30" formControlName="LastName" ng-required="true" 
-                                        [ngClass]="{ 'has-error': submitted && f['LastName'].errors }" OnlyCharacter CapitalizeFirstChar>
-                                </div>
-                        
-                        </div>
-
                         <div class="col-md-6 col-12">
                             
                                 <div class="form-group register-form-page mt-2 mb-0">
@@ -112,20 +74,6 @@ color="#fff"
                                         aria-describedby="textHelp" placeholder="Enter Secondary  Mobile" maxlength="10" numbersOnly>
 
                                 </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                        
-                                <div class="form-group register-form-page mt-2 mb-0">
-                                    <label class="lable-register" 
-                                        for="Gender">Gender * </label>
-                                    <select class="form-control" id="Gender" name="Gender" formControlName="Gender" ng-required="true" 
-                                    [ngClass]="{ 'has-error': submitted && f['Gender'].errors }" >
-                                        <option value="">-- Select Gender --</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                    </select>
-                                </div>
-                        
                         </div>
                         <div class="col-md-6 col-12">
                                 <div class="form-group register-form-page mt-2 mb-0">

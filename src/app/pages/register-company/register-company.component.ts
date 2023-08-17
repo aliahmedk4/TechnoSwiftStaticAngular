@@ -40,13 +40,9 @@ export class RegisterCompanyComponent implements OnInit{
   BuildCreateSalesForm(){
     this.createRegisterForm = this.formBuilder.group({
       CompName: ['', Validators.required],
-      PrintName: ['', Validators.required],
       FirstName: ['', Validators.required],
-      Middle: ['', Validators.required],
-      LastName: ['', Validators.required],
       Phone: ['', Validators.required],
       AlternateMobile: ['', Validators.nullValidator],
-      Gender: ['Male', Validators.required],
       Username: ['', Validators.required],
       Email: ['', Validators.required],
       Password: ['', Validators.required],
@@ -123,6 +119,7 @@ ClearValues(){
 
     this.companyService.ShowHideSpinner(true);
     this.companyDetail.Company = this.createRegisterForm.value;
+		this.companyDetail.Company.PrintName = this.companyDetail.Company.CompName;
     if(this.OTP)
     this.companyDetail.Company.RegisteredOTP = this.OTP;
 
