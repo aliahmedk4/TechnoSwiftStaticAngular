@@ -25,7 +25,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
     this.companyService.ShowHideSpinner(true);
 
-    return next.handle(request).pipe(timeout(20000),
+    return next.handle(request).pipe(timeout(180000),
           map((event: HttpEvent<any>) => {
             return event;
           }),finalize(()=>{

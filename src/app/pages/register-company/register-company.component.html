@@ -21,11 +21,8 @@ color="#fff"
                                 </div>
                             </div>
                             <div class="col-md-3 col-6">
-                                
+                                <button class="btn btn-warning pull-right" (click)="RedirectDomain()">Switch to {{buttonText}}</button>
                             </div>
-
-
-
                         </div>
                     </div>
 
@@ -184,7 +181,7 @@ color="#fff"
                                 <div class="form-group register-form-page mt-2 mb-0">
                                     <label class="lable-register " for="Address">Address</label>
                                     <textarea class=" form-control" id="Address" formControlName="Address" 
-                                            placeholder="Enter Address"></textarea>
+                                            placeholder="Enter Address" CapitalizeFirstChar></textarea>
                                 </div>
                             
                         </div>
@@ -225,7 +222,7 @@ color="#fff"
          <div class="modal-dialog" role="document">
                <div class="modal-content">
                      <div class="modal-header">
-                           <h4 class="modal-title">OTP has been send on your email</h4>
+                           <h4 class="modal-title">OTP has been send on your mobile/email</h4>
                            <button type="button" (click)="onCloseHandled()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                          </div>
                           <div class="modal-body">
@@ -245,7 +242,7 @@ color="#fff"
                           </div>
                          </div>
                      <div class="modal-footer">
-                           <button type="button" class="btn btn-default" (click)="SaveCompany()" >Confirm OTP</button>
+                           <button type="button" class="btn btn-warning" (click)="SaveCompany()" >Confirm OTP</button>
                          </div>
             </div>
         </div>

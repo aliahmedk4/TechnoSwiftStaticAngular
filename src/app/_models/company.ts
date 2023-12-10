@@ -24,6 +24,8 @@ export interface CompanyModel {
     BankIFSCCode: string;
     BillAuthorisedCondition: string;
     BillTermsCondition: string;
+    BusinessTypeId: number;
+    FirmTypeId: number;
     CountryId: number | null;
     StateCode: string;
     City: string;

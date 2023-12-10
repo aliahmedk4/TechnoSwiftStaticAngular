@@ -3,7 +3,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalParameterType } from 'src/app/_helpers/dbenum';
 import { CompanyDetail } from 'src/app/_models/company';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-company',
@@ -23,18 +23,43 @@ export class RegisterCompanyComponent implements OnInit{
   display = "none";
   displaySuccess = "none";
   typeSelected = 'ball-spin';
+  buttonText = '';
   
   constructor(
     private companyService:CompanyService,
     private formBuilder: FormBuilder,
-    private spinnerService: NgxSpinnerService,
+    private router: Router
   ){
     this.BuildCreateSalesForm();
+    this.SetButtonText();
   }
 
   async ngOnInit() {
     await this.GetState();
     await this.LoadDropDownForRegistration();
+  }
+
+  RedirectDomain(){
+    const currentDomain = window.location.hostname;
+    console.log(currentDomain);
+    if (currentDomain === 'www.technoswiftsolution.com') {
+      window.location.href = 'https://staging.technoswiftsolution.com/registercompany';
+    } else if (currentDomain === 'technoswiftsolution.com') {
+      window.location.href = 'https://staging.technoswiftsolution.com/registercompany';
+    } else if (currentDomain === 'staging.technoswiftsolution.com') {
+      window.location.href = 'https://www.technoswiftsolution.com/registercompany';
+    }
+  }
+
+  SetButtonText(){
+      const currentDomain = window.location.hostname;
+      if (currentDomain === 'www.technoswiftsolution.com') {
+        this.buttonText = 'Testing/Sandbox';
+      } else if (currentDomain === 'technoswiftsolution.com') {
+        this.buttonText = 'Testing/Sandbox';
+      } else if (currentDomain === 'staging.technoswiftsolution.com') {
+        this.buttonText = 'Live';
+      }
   }
 
   BuildCreateSalesForm(){

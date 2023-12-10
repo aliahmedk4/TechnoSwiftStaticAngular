@@ -29,7 +29,8 @@
 		      <li><a [ngClass]="{'active': activeRoute('/privacy')}"  [routerLink]="['/privacy']">Privacy</a></li>
           <li><a (click)="onClick('services')" style="cursor: pointer;">Services</a></li>
           <!-- <li><a (click)="onClick('portfolio')" style="cursor: pointer;">Portfolio</a></li> -->
-          <li><a (click)="onClick('team')" style="cursor: pointer;">Team</a></li>
+		      <li><a [ngClass]="{'active': activeRoute('/pricing')}"  [routerLink]="['/pricing']">Pricing</a></li>
+          <!-- <li><a (click)="onClick('team')" style="cursor: pointer;">Team</a></li> -->
 		   <li class="drop-down"  [ngClass]="{'active': activeRoute('/registercompany')}" ><a href="">Register</a>
             <ul>
               <li><a [routerLink]="['/registercompany']">SalesBook as Customer</a></li>

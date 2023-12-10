@@ -3,12 +3,12 @@ export namespace AppState {
         Timeout:60000,
         LandingPageSize:15,
         // LIVE
-        APIBaseURL:'https://salesbookapi.technoswiftsolution.com/api/',
-        API_URL: 'https://salesbookapi.technoswiftsolution.com/',
+        // APIBaseURL:'https://salesbookapi.technoswiftsolution.com/api/',
+        // API_URL: 'https://salesbookapi.technoswiftsolution.com/',
 
         // UAT
-        // APIBaseURL:'https://salebookuatapi.technoswiftsolution.com/api/',
-        // API_URL: 'https://salebookuatapi.technoswiftsolution.com/',
+        APIBaseURL:'https://salebookuatapi.technoswiftsolution.com/api/',
+        API_URL: 'https://salebookuatapi.technoswiftsolution.com/',
 
         // LOCAL
         //  APIBaseURL:'http://localhost:59320/api/',
