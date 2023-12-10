@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject,Observable, tap } from 'rxjs';
-import { AppState } from '../_helpers/AppState';
 import { CompanyDetail } from '../_models/company';
+import { environment } from 'src/environments/environment.customer';
 
-const API_URL = AppState.config.APIBaseURL;
+const API_URL = environment.APIBaseURL;
 
 @Injectable({
   providedIn: 'root'
