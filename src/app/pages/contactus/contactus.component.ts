@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { CompanyService } from 'src/app/services/company.service';
-import { AppState } from 'src/app/_helpers/AppState';
+import { environment } from 'src/environments/environment.customer';
 
 @Component({
   selector: 'app-contactus',
@@ -58,10 +58,10 @@ export class ContactUsComponent {
       this.companyService.ShowHideSpinner(false);
       return; 
     }
-    data.From = AppState.config.From
-    data.To = AppState.config.To
-    data.EmailLogDescription = AppState.config.EmailLogDescription
-    data.EmailType = AppState.config.EmailType
+    data.From = environment.From
+    data.To = environment.To
+    data.EmailLogDescription = environment.EmailLogDescription
+    data.EmailType = environment.EmailType
 
     this.companyService.SendEmail(data).subscribe(response=>{
       this.companyService.ShowHideSpinner(false);

@@ -12,6 +12,3 @@ export const environment = {
   EmailType:4
 
 };
-
-// ng build --configuration=uat for building with the UAT configuration.
-// ng serve --configuration=uat for serving with the UAT configuration.

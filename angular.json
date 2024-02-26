@@ -37,14 +37,14 @@
               "node_modules/ngx-spinner/animations/ball-spin.css"
             ],
             "scripts": [
-            "node_modules/jquery/dist/jquery.min.js",
-            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/js/wow/wow.min.js",
               "src/js/main.js"
             ]
           },
           "configurations": {
-            "production": {
+            "prod": {
               "budgets": [
                 {
                   "type": "initial",
@@ -65,7 +65,7 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "dev": {
               "budgets": [
                 {
                   "type": "initial",
@@ -113,11 +113,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "TechnoSwiftWeb:build:production"
+            "prod": {
+              "browserTarget": "TechnoSwiftWeb:build:prod"
             },
-            "development": {
-              "browserTarget": "TechnoSwiftWeb:build:development"
+            "dev": {
+              "browserTarget": "TechnoSwiftWeb:build:dev"
             },
             "uat": {
               "browserTarget": "TechnoSwiftWeb:build:uat"
@@ -126,7 +126,7 @@
               "browserTarget": "TechnoSwiftWeb:build:staging"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "uat"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -155,10 +155,10 @@
               "node_modules/ngx-spinner/animations/ball-spin.css"
             ],
             "scripts": [
-            "node_modules/jquery/dist/jquery.min.js",
-            "node_modules/bootstrap/dist/js/bootstrap.min.js",
-            "src/js/wow/wow.min.js",
-            "src/js/main.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/js/wow/wow.min.js",
+              "src/js/main.js"
             ]
           }
         }
