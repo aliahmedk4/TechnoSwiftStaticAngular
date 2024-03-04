@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GlobalParameterType } from 'src/app/_helpers/dbenum';
-import { CompanyDetail } from 'src/app/_models/company';
 import { Router } from '@angular/router';
+import { PartnerDetail, PartnerModel } from 'src/app/_models/partner';
 
 @Component({
-  selector: 'app-register-company',
-  templateUrl: './register-company.component.html',
-  styleUrls: ['./register-company.component.scss']
+  selector: 'app-register-partner',
+  templateUrl: './register-partner.component.html',
+  styleUrls: ['./register-partner.component.scss']
 })
-export class RegisterCompanyComponent implements OnInit {
-  companyDetail: CompanyDetail = <CompanyDetail>{};
+export class RegisterPartnerComponent implements OnInit {
+  partnerDetail: PartnerModel = <PartnerModel>{};
   createRegisterForm: FormGroup;
   submitted = false;
   OTP = '';
@@ -24,6 +24,7 @@ export class RegisterCompanyComponent implements OnInit {
   displaySuccess = "none";
   typeSelected = 'ball-spin';
   buttonText = '';
+  gender: string[] = ['Male', 'Female'];
 
   constructor(
     private companyService: CompanyService,
@@ -43,11 +44,11 @@ export class RegisterCompanyComponent implements OnInit {
     const currentDomain = window.location.hostname;
     console.log(currentDomain);
     if (currentDomain === 'www.technoswiftsolution.com') {
-      window.location.href = 'https://staging.technoswiftsolution.com/registercompany';
+      window.location.href = 'https://staging.technoswiftsolution.com/registerpartner';
     } else if (currentDomain === 'technoswiftsolution.com') {
-      window.location.href = 'https://staging.technoswiftsolution.com/registercompany';
+      window.location.href = 'https://staging.technoswiftsolution.com/registerpartner';
     } else if (currentDomain === 'staging.technoswiftsolution.com') {
-      window.location.href = 'https://www.technoswiftsolution.com/registercompany';
+      window.location.href = 'https://www.technoswiftsolution.com/registerpartner';
     }
   }
 
@@ -64,20 +65,18 @@ export class RegisterCompanyComponent implements OnInit {
 
   BuildCreateSalesForm() {
     this.createRegisterForm = this.formBuilder.group({
-      CompName: ['', Validators.required],
       FirstName: ['', Validators.required],
-      Phone: ['', Validators.required],
-      AlternateMobile: ['', Validators.nullValidator],
+      MiddleName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      MobileNumber: ['', Validators.required],
+      Gender: ['1', Validators.required],
       Username: ['', Validators.required],
       Email: ['', Validators.required],
-      Password: ['', Validators.required],
+      UserPwd: ['', Validators.required],
       ConfirmPassword: ['', Validators.required],
-      ReferalReferCode: ['', Validators.nullValidator],
-      StateCode: ['027', Validators.required],
+      UserReferCode: ['', Validators.nullValidator],
+      StateCode: ['', Validators.required],
       City: ['', Validators.required],
-      FirmTypeId: ['1', Validators.required],
-      BusinessTypeId: ['1', Validators.required],
-      Address: ['', Validators.required],
 
     });
   }
@@ -95,7 +94,7 @@ export class RegisterCompanyComponent implements OnInit {
   onCloseHandled() {
     this.display = "none";
     this.OTP = '';
-    this.companyDetail.Company.RequestId = '';
+    this.partnerDetail.RequestId = '';
   }
 
   onSuccessCloseHandled() {
@@ -139,14 +138,14 @@ export class RegisterCompanyComponent implements OnInit {
     this.BuildCreateSalesForm();
   }
 
-  SaveCompany() {
+  SavPartner() {
     this.showerror = false; this.errormessage = '';
 
     this.companyService.ShowHideSpinner(true);
-    this.companyDetail.Company = this.createRegisterForm.value;
-    this.companyDetail.Company.PrintName = this.companyDetail.Company.CompName;
+    this.partnerDetail = this.createRegisterForm.value;
+    this.partnerDetail.FirstName = this.partnerDetail.FirstName;
     if (this.OTP)
-      this.companyDetail.Company.RegisteredOTP = this.OTP;
+      this.partnerDetail.RegisteredOTP = this.OTP;
 
     this.submitted = true;
     if (this.createRegisterForm.invalid) {
@@ -154,11 +153,14 @@ export class RegisterCompanyComponent implements OnInit {
       return;
     }
 
-    this.companyService.RegisterCompany(this.companyDetail).subscribe(response => {
-      this.companyService.ShowHideSpinner(false);
+    var data = '{"Users": ' + JSON.stringify(this.partnerDetail) + ',UsersEmergencyContactDetail:' + JSON.stringify({}) + '}';
 
+    this.companyService.RegisterUser(data).subscribe(response => {
+      this.companyService.ShowHideSpinner(false);
+      console.log(response);
       if (response.RequestId != undefined) {
-        this.companyDetail.Company.RequestId = response.RequestId;
+        this.partnerDetail.RequestId = response.RequestId;
+        console.log('openmodal');
         this.openModal();
       } else {
         this.display = "none";

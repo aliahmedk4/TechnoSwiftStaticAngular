@@ -6,9 +6,9 @@ export class SpecialCharacterDirective {
   regexStr = '^[a-zA-Z0-9_]*$';
   @Input() isAlphaNumeric: boolean;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
-  @HostListener('keypress', ['$event']) onKeyPress(event:any) {
+  @HostListener('keypress', ['$event']) onKeyPress(event: any) {
     return new RegExp(this.regexStr).test(event.key);
   }
 
@@ -16,13 +16,13 @@ export class SpecialCharacterDirective {
     this.validateFields(event);
   }
 
-  validateFields(event:any) {
+  validateFields(event: any) {
     console.log(event.target.value);
     setTimeout(() => {
       this.el.nativeElement.value = this.el.nativeElement.value
-        .replace(/[^A-Za-z ]/g, '')
-        .replace(/\s/g, '');
+        .replace(/[^a-zA-Z0-9_]/g, ''); // Allow alphanumeric characters and underscores
       event.preventDefault();
     }, 100);
   }
+
 }

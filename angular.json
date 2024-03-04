@@ -57,6 +57,7 @@
                   "maximumError": "4mb"
                 }
               ],
+              "outputPath": "dist/production",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -78,6 +79,7 @@
                   "maximumError": "4mb"
                 }
               ],
+              "outputPath": "dist/dev",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -99,6 +101,7 @@
                   "maximumError": "4mb"
                 }
               ],
+              "outputPath": "dist/uat",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject,Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { CompanyDetail } from '../_models/company';
 import { environment } from 'src/environments/environment';
+import { PartnerDetail } from '../_models/partner';
 
 const API_URL = environment.APIBaseURL;
 
@@ -11,40 +12,47 @@ const API_URL = environment.APIBaseURL;
 })
 export class CompanyService {
   public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  
+
   constructor(private http: HttpClient) { }
 
-  ShowHideSpinner(value:boolean){
+  ShowHideSpinner(value: boolean) {
     this.showSpinner.next(value);
   }
 
   LoadDropDownForRegistration(): Observable<any> {
     const url = API_URL + "Common/LoadDropDownForRegistration";
     return this.http.get<any>(`${url}`).pipe(
-      tap(_ => {})
-      )
+      tap(_ => { })
+    )
   }
 
   GetAllState(): Observable<any[]> {
     const url = API_URL + "Common/GetAllState";
     return this.http.get<any[]>(`${url}`).pipe(
-      tap(_ => {})
-      )
+      tap(_ => { })
+    )
   }
 
 
-  RegisterCompany(company:CompanyDetail): Observable<any> {
+  RegisterCompany(company: CompanyDetail): Observable<any> {
     const url = API_URL + "Company/RegisterCompany";
-    return this.http.post<CompanyDetail>(`${url}`,company).pipe(
-      tap(_ => {})
-      )
+    return this.http.post<CompanyDetail>(`${url}`, company).pipe(
+      tap(_ => { })
+    )
   }
 
-  SendEmail(sendmessage:any): Observable<any> {
+  RegisterUser(user: any): Observable<any> {
+    const url = API_URL + "User/RegisterPartnerUser";
+    return this.http.post<any>(`${url}`, user).pipe(
+      tap(_ => { })
+    )
+  }
+
+  SendEmail(sendmessage: any): Observable<any> {
     const url = API_URL + "Common/SendAnonymousEmail";
-    return this.http.post<CompanyDetail>(`${url}`,sendmessage).pipe(
-      tap(_ => {})
-      )
+    return this.http.post<CompanyDetail>(`${url}`, sendmessage).pipe(
+      tap(_ => { })
+    )
   }
 
   // GetSalesDetail(orderid,customerid,saletypeid,saleprefixid,rowkey): Observable<any> {

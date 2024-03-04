@@ -14,7 +14,7 @@ import { CompanyService } from '../services/company.service';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
-  constructor(private companyService:CompanyService) {}
+  constructor(private companyService: CompanyService) { }
 
   intercept(
     request: HttpRequest<any>,
@@ -23,14 +23,20 @@ export class MyHttpInterceptor implements HttpInterceptor {
     // Modify the request if needed (e.g., adding headers)
     // const modifiedRequest = request.clone({ headers: ... });
 
+    request = request.clone({
+      setHeaders: {
+        'Content-Type': 'application/json'
+      }
+    });
+
     this.companyService.ShowHideSpinner(true);
 
     return next.handle(request).pipe(timeout(180000),
-          map((event: HttpEvent<any>) => {
-            return event;
-          }),finalize(()=>{
-              this.companyService.ShowHideSpinner(false);
-        }),
+      map((event: HttpEvent<any>) => {
+        return event;
+      }), finalize(() => {
+        this.companyService.ShowHideSpinner(false);
+      }),
       catchError((error: HttpErrorResponse) => {
         // Handle errors here
         console.error('HTTP Error:', error);
@@ -41,6 +47,5 @@ export class MyHttpInterceptor implements HttpInterceptor {
 }
 
 export const InterceptorProviders = [
-    { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
-  ];
-  
+  { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
+];
